@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="guru">
+    <%- include ('./partials/head') %>
+    <body ng-controller="brandList">
+        <%- include ('./partials/body') %>
+
+        <script>
+            
+            var foundItem = '<%-specData.item%>';
+            var unitPrice = '<%-specData.price%>';
+
+        </script>
+
+        
+        <ul2 class="center" style="background-color: white;">
+            <div class="container" >
+            <div class="row">
+                <div id="foundItemImageCol" class="col-xs-6 col-md-4"  >
+                    <p style="font-size: 25px;"><u><b> <%-specData.item%></b></u></p>
+                    <img class="foundItemImage" src="/img/itemImg/<%=specData.image%>" alt="Image not found" style="width: 350; height: 350px;">
+                    <br>
+                    <br>
+                </div>
+                <div id="foundItemCol"class="col-xs-6 col-md-4" style="float: right; padding-left: 700px; width: 800px;">
+                    <div class="foundItemDes" style="float: right; padding-left: 500px; width: 1000px; height: 500px; font-size: 30px;"><%-specData.des%>
+                        <br>
+                        <br>
+                        
+                        <p class="foundItemSpec" style="font-size: 25px;"><u><b>MPN:</b></u> <%-specData.mpn%></p>
+
+                    </div>
+                    
+            
+                </div>
+                <div class="col-xs-6 col-md-4" >
+
+                
+                    Per-unit: 
+                    <div class="money" ng-model="onePrice" style="font-size: 30px; width: 200%;">$<%-specData.price%></div>
+                    Total Cost: 
+                    <div class="money" ng-model="totalCost" id="totalCost" style="font-size: 30px; width: 200%;">$<%-specData.totalPrice%></div>
+                    <br>
+                    <div style="width:125%">
+                    Qty: 
+                    <input ng-change="testClick(quantity, (<%-specData.price%>).toFixed(2))" onclick="this.select()" style="padding-left: 5px; width: 100px;" type="number" ng-model="quantity">
+                    <input ng-click="purchase(quantity)" type="submit" id="submit" value="Add to Cart" />
+                    </div>
+                    <br>
+                <div id="returnTestID" style="font-weight: bold;"></div>
+                <div class="buttonBox" style="width: 500px;" id="heightForMobile" ng-show="showTwo">
+                    <br>
+                    <button type="button" onclick="location.href='/'" class="purButton" href="/" >Continue shopping</button> 
+                    <span>	&nbsp; OR	&nbsp; </span>
+                    <button class="purButton" onclick="location.href='/cart.html'" type="button" ng-click="addToCart()" href="/cart.html">Check Out</button>
+                </div>
+                
+                <br>
+               
+
+            </div>
+
+
+
+            </div>
+            
+        </div>
+        
+
+        </div>
+
+      </ul2>
+    </body>
+</html>

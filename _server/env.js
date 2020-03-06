@@ -1,0 +1,1 @@
+process.env.TOKEN='dSgVkYp3s6v9y$B&E)H@McQeThWmZq4t';

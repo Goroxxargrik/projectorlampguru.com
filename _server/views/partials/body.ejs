@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-md-4">
+      <img class="mobile-hide" src="/img/guru3.gif" alt="Trulli" style="width:300px;height:300px"  >
+
+    </div>
+    <div class="col-xs-6 col-md-4" style="width: 100%; text-align: center;">
+      <br><br><br>
+      <a href="/"><img class="main_logo" src="/img/logo.png" alt="Trulli" style="width: 368px; height: 204px" ></a>
+    </div>
+     
+    </div>
+</div>
+<text class="topright" style="position: absolute; top: 0%;" > 
+  Phone: 855-726-8899 <br>       
+  Fax: 877-837-8906 <br>
+<div ng-hide="loggedIn">
+  <button type="button" onclick="window.location.href = '/login.html'" >Log In </button>
+</div>  
+<div ng-show="loggedIn">
+  <div id="signedInEmail"></div>
+  <button ng-click="userLogout()" type="button" onclick="window.location.href = '/'" >Log Out </button>
+</div>
+
+</text>
+  
+<br><br><br>
+
+<div align="center">
+<nav class="navbar navbar-expand-xl navbar-dark">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul style="width: 100%; padding-left: 100px;" class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="/">Home </a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="about">About</a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link" href="cont">Contact </a>
+        </li>
+      <li class="nav-item active">
+        <a href="/cart.html"><img class="cart" src="/img/whiteCart.png" alt="Trulli" style="width: 52px; height: 42px" ></a><br>
+      </li>
+  </ul>
+
+</div>
+</nav>
+</div>
+<br>
+

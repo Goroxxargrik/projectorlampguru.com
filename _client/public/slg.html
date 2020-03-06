@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html ng-app="guru">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="app.js"></script>
+<script src="services.js"></script>
+<script src="controller.js"></script>
+</head>
+
+<body ng-controller="brandList" ><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4">
+          <img class="mobile-hide" src="/img/guru3.gif" alt="Trulli" style="width:300px;height:300px"  >
+
+        </div>
+        <div class="col-xs-6 col-md-4" style="width: 100%; text-align: center;">
+          <br><br><br>
+          <a href="/"><img class="main_logo" src="/img/logo.png" alt="Trulli" style="width: 368px; height: 204px" ></a>
+        </div>
+         
+        </div>
+    </div>
+    <text class="topright" style="position: absolute; top: 0%;" > 
+      Phone: 855-726-8899 <br>       
+      Fax: 877-837-8906 <br>
+    <div ng-hide="loggedIn">
+      <button type="button" onclick="window.location.href = '/login.html'" >Log In </button>
+    </div>  
+    <div ng-show="loggedIn">
+      <div id="signedInEmail"></div>
+      <button ng-click="userLogout()" type="button" onclick="window.location.href = '/'" >Log Out </button>
+    </div>
+
+    </text>
+      
+    <br><br><br>
+
+
+  <div align="center">
+  <nav class="navbar navbar-expand-xl navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul style="width: 100%; padding-left: 100px;" class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home </a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link" href="about">About </a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="cont">Contact </a>
+          </li>
+        <li class="nav-item active">
+          <!--<a href="/cart.html"><img class="cart" src="/img/whiteCart.png" alt="Trulli" style="width: 52px; height: 42px" ></a><br>
+          <a href="/cart.html" class="icon-shopping-cart" style="font-size: 25px"><asp:Label ID="lblCartCount" runat="server" CssClass="badge badge-warning"  ForeColor="White"/></a>-->
+
+          <a href="/cart.html"><img class="cart" src="/img/whiteCart.png" alt="Trulli" style="width: 52px; height: 42px" ></a>
+  </span>
+
+        </li>
+    </ul>
+
+  </div>
+</nav>
+</div>
+<br>
+
+<ul2 class="center">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-md-4">
+<form>
+  <label for="brand">Brand:</label>
+  <select  ng-change="submit(lamp.brand)"  id="selBrand" ng-model="brand" class="form-control form-control-lg">
+      <option value="All lamps" disabled="disabled">Please Select a Brand...</option>
+      <option  ng-repeat="i in brandList.data" value="{{i.brand}}">{{i.brand}}</option>
+  </select>
+</div>
+<div class="col-xs-6 col-md-4">
+
+    <label for="inputLamp">Search:</label>
+    <input ng-change="submit(lamp.brand)" id="specLamp" ng-model="lamp" class="form-control form-control-lg">
+    </input>
+</div>
+
+
+</form>
+</div>
+</div>
+<br>
+
+<div id="heightForMobile" ng-show="show">
+<div style="text-align:center;" >
+  <h2 id="retBrand" style="text-decoration: underline;  font-weight: bold;"></h2>
+  <p id="results"></p>
+</div>
+<div style="text-align:center;height: 580px;">
+  <br>
+  <ul class="list" style="align-content: center;  width: 100%; overflow: auto; height: 100%; background-color: white; border-top-style: solid; border-top-color: #53648F;height: 600px" >
+    <br>    <br>
+    <br>
+
+    <li  id="searchResults" class="center" ng-repeat="i in returnList;"  >
+      <div class="col-xs-6 col-md-4" style="float:left; height:500px;" >
+        <div class="row">
+            <b><div  id="item" ng-click="transfer($index)" class="column" >{{i.item}}</div></b>
+            <div id="image" ng-click="transfer($index)" class="column" ><img src='/img/itemImg/{{i.image}}' on-error="/img/nif.png" style="width: 150px; height: 150px; cursor: pointer;" ></div>
+            <div id="description" ng-click="transfer($index)" class="column" > {{i.webDes}}</div>
+            <u><div id="price" type="number" ng-click="transfer($index)" class="column" >${{i.price | number : 2}}</div></u>        
+             
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+</div>
+</ul2>
+</body>
+</html>

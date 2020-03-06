@@ -1,0 +1,462 @@
+/*53648F*/
+
+@font-face {
+  font-family: comf;
+  src: url(/fonts/comfort.ttf);
+}
+@font-face {
+  font-family: eco;
+  src: url(/fonts/eco.otf);
+}
+
+
+.table {
+  border-top: 1px solid black;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #ffccff;
+  color: black;
+
+}
+
+
+
+table:empty {
+  display: none;
+ }
+
+.purButton{
+
+  background-color: white;
+  border-color: black;
+  border-radius: 10px;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+  opacity: 8;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+
+}
+
+.purButton:hover {
+  background-color: #53648F;
+  color: white;
+
+}
+
+
+
+.money{
+  font-family: eco;
+
+}
+h2 {
+  font-family: comf;
+  font-size: 30px;
+  color: #53648F;
+
+}
+
+/* Test class to visualize element borders */
+.testBorder{
+  border-style: solid; 
+  border-color: red;
+}
+
+div#testBorder{
+  border-style: solid; 
+  border-color: red;
+}
+#testBorder{
+  border-style: solid; 
+  border-color: red;
+}
+
+
+
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+
+
+text {
+  float: right;
+  font-family: eco;
+  font-size: 20px;
+  margin-right: 23px;
+}
+#container {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+ float: left;
+ width: 33.33%;
+ padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+ content: "";
+ clear: both;
+ display: table;
+}
+
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+u{
+  font:#53648F;
+}
+
+
+body {
+  background-color: #D8D8D8;
+  margin-bottom: 105px;
+
+}
+
+div2 {
+    font-size: 30px;
+    font-family: comf;
+    margin-left: 150px;
+
+}
+
+#navbarSupportedContent{
+
+  color:red;
+
+}
+
+
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 1px;
+  font-size: 18px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+  /* USE THESE CLASSES TO HIDE CONTENT ON MOBILE */
+  .navbar-nav > li{
+
+    
+    width: 200px;
+
+  }
+
+  .purButton{
+
+    width: 100% !important;
+    height: 100px !important;
+    font-size: 20px !important;
+  }
+
+  .buttonBox{
+
+    width: 200px !important;
+  }
+  .foundItemSpec{
+    width: 250px !important; 
+
+    padding-left: 0px !important;
+
+    font-size: 15px !important;
+  }
+  .foundItemDes{
+    /*
+    float: right; 
+    padding-left: 500px; 
+    width: 1000px; 
+    height: 500px; 
+    font-size: 30px;
+    */
+    height: 350px !important; 
+    width: 250px !important; 
+
+    padding-left: 0px !important;
+    font-size: 20px !important;
+    
+  }
+  #foundItemImageCol{
+    padding-left: 25% !important;
+  }
+  #foundItemCol{
+    padding-left: 0% !important;
+  }
+  .foundItemImage{
+    width: 150px !important; 
+    height: 150px !important;
+  }
+  #selBrand{
+    font-size: 15px;
+  }
+ .mobile-hide {
+    display: none !important;
+
+ }
+
+ .main_logo{
+   margin-left: -5%;
+ }
+
+ .navbar-expand-xl {
+   width: 100%  !important;
+
+  }
+
+
+  .topright {
+    display: none !important;
+  }
+
+
+  #specLamp {
+    width: 100% !important; 
+  }
+
+  /* width */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 100px;
+}
+
+#item{
+  width: 250px !important;
+  cursor: pointer;
+}
+
+#image{
+
+  padding-left: 25%;
+  cursor: pointer !important;
+
+}
+
+#description{
+  padding-bottom: 25px;
+  cursor: pointer;
+
+
+}
+
+#price{
+  padding-bottom: 25px;
+  cursor: pointer;
+
+
+}
+
+div#heightForMobile li{
+  height: 700px;
+}
+
+}
+
+ul2 {
+    font-family: comf;
+    border-radius: 10px;
+    border: 3px solid #555;
+    display: inline-table;
+    width: 74%;
+    list-style-type: none;
+    margin: 0;
+    padding: 30px 0px;
+    overflow: hidden;
+    background-color: #c9b75b;
+
+}
+
+
+
+select {
+  display: inline-block;
+  color: black;
+  padding: 5px 200px;
+  text-decoration: none;
+  border: 3px solid grey;
+  border-radius: 5px;
+  font-size: 15px;
+
+
+
+}
+
+#specLamp {
+
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+  width: 200%
+
+}
+
+nav{
+
+  color: red;
+}
+
+
+.navbar-expand-xl {
+
+  border-radius: 10px;
+  background-color:#53648F;
+  background-image: none;
+  background-repeat: no-repeat;
+  width: 73%;
+  border: 3px solid #555;
+
+
+
+ }
+ .navbar a {
+
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    color: white;
+    font-size: 25px;
+
+}
+@media screen and (min-width: 600px) {
+
+  
+  .table{
+    width: 1000px !important;
+  }
+  .navbar-nav > li{
+
+    padding-left:80px;
+    padding-right:80px;
+    width: 200px;
+
+  }
+
+ }
+
+
+.navbar a:hover {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  border-radius: 10px;
+  color: #ffccff !important;
+}
+
+
+.btn-default {
+  font-family: comf;
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #53648F;
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 3px #999;
+
+}
+
+.btn-default:hover {
+  color: #f1f1f1;
+  background-color: #53648F;
+
+
+}
+
+.btn-default:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#description{
+  width: 400px; 
+  font-size: 20px;
+  cursor: pointer;
+
+
+}
+
+
+label{
+  font-size: 30px;
+}
+
+
+.list{
+  padding:0;
+  width:100%;
+  text-align:center;
+
+
+}
+
+.list > li{
+    margin:10px;
+    list-style-type: none;
+}
+
+#item{
+  width: 100px;
+  cursor: pointer;
+
+}
+
+#price{
+  font-size: 30px;
+  cursor: pointer;
+
+}
+
+
