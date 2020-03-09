@@ -16,8 +16,6 @@ require('env');
  */
 
 
-
-// POST (CREATE): http://localhost:3000/api/register
 router.post('/', (req, res) => {
     var token = req.body.token;
     var hash = req.body.hash;
@@ -32,14 +30,32 @@ router.post('/', (req, res) => {
         }
         else {
 
+            console.log(result.length);
+
+            if(!result.length > 0){
+                console.log("Token Doesnt Exist");
+                res.json({message : "no_salt"});
+            }
+            else{
+
+            
             sqlTwo = "SELECT * FROM users WHERE salt = ?;";
 
             con.query(sqlTwo, [result[0].salt], function (erro, resultTwo) {
 
+
                 if (erro) {
-                    console.log("little error");
+                    console.log("error");
                 }
                 else {
+
+                    if(hash.toLowerCase() == hash){
+                        console.log("passwords must have at least 1 capital letter");
+                        res.json({message : "no_cap"});
+                    }
+                    else{
+
+                    
 
                     hash = crypto.pbkdf2Sync(hash, result[0].salt, 1000, 64, 'sha256').toString('hex');
                     confHash = crypto.pbkdf2Sync(confHash, result[0].salt, 1000, 64, 'sha256').toString('hex');
@@ -49,6 +65,8 @@ router.post('/', (req, res) => {
 
                     if (hash != confHash) {
                         console.log("passwords don't match");
+                        res.json({message : "no_match"});
+
                     }
 
                     else {
@@ -82,9 +100,11 @@ router.post('/', (req, res) => {
                     }
 
                 }
+            }
 
             });
         }
+    }
 
 
     });

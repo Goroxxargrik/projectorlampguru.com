@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
 
         else if(!result.length > 0){
 
-            
+            res.json({message : "no_email"});
             console.log("email doesnt exist");
 
         }

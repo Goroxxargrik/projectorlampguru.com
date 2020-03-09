@@ -11,16 +11,12 @@ app.factory('data', ['$http', '$window' , function ($http,$window) {
 
     o.userLogin = function (payload) {
         return $http.post('/api/login', payload)
-        .success(function (data) {
-            auth.saveToken(data.token);
-        });    };
+          };
         
 
     o.userRegister = function (payload) {
         return $http.post('/api/register', payload)
-        .success(function (data) {
-            auth.saveToken(data.token);
-        });    };
+           };
 
 
     o.saveToken = function (token) {

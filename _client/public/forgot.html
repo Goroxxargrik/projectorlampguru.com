@@ -61,12 +61,14 @@
                 <p style="font-size: 13px; color: white; padding-left: 25px;">
                     1.) Enter your email and hit submit<br>
                     2.) Check your email for a temporary token<br>
-                    3.) Enter your the token in the "Token" field<br>
+                    3.) Enter your the token in the "token" field<br>
                     4.) Enter your new password<br>
 
                 </p>
                 
-
+				<div class="alert alert-danger" style="text-align: center;" ng-show="forgotErrorShow">
+					<div id="forgotErrorShow"></div>
+				</div>
 			
 			<div class="card-footer">
 

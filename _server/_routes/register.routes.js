@@ -37,6 +37,7 @@ router.post('/', (req, res) => {
 
 
 
+
     con.connect(function(erro) {  //MySQL connection
       
 
@@ -53,12 +54,14 @@ router.post('/', (req, res) => {
                     //if you find email from query
                     if (result.length > 0) {
                         if (result) {
+                            res.json({message : "no_reuse"});
                             console.log("Email already in use");
                         }        
                     }
 
                     else if(!email.includes('@') || !email.includes('.')){
 
+                        res.json({message : "no_valid"});
                         console.log("Not a valid email");
 
 
@@ -66,11 +69,12 @@ router.post('/', (req, res) => {
                     }
 
                     else if(req.body.userPass.toLowerCase() == req.body.userPass){
+                        res.json({message : "no_cap"});
                         console.log("One capital letter required");
                     }
 
                     else if(req.body.userPass != req.body.userConf){
-
+                        res.json({message : "no_match"});
                         console.log("passwords do not match");
 
                     }

@@ -1,19 +1,22 @@
 src="_server\\views\\search.ejs";
 
 app.controller('brandList', ['$scope', '$http', '$timeout' , '$window' ,'$location','$anchorScroll' ,'data', function($scope, $http ,$timeout ,$window, $anchorScroll , $location, data) {
+    $scope.key;
     $scope.brandList = [];
     $scope.returnList = [];
     $scope.cartArray = [];
-    
     $scope.brand = 'All lamps';
     $scope.lamp = '';
-    $scope.show = false;
-    $scope.showTwo = false;
     $scope.quantity = 1;
     $scope.grandTotal = 0;
-    $scope.key;
-    $scope.showError = false;
     $scope.cartCount = localStorage.length;
+    $scope.show = false;
+    $scope.showTwo = false;
+    $scope.showError = false;
+    $scope.resetErrorShow = false;
+    $scope.forgotErrorShow = false;
+    $scope.registerErrorShow = false;
+
 
 
     
@@ -293,7 +296,14 @@ app.controller('brandList', ['$scope', '$http', '$timeout' , '$window' ,'$locati
 
         data.sendToken(payload).then(function successCallBack(res) {
 
-            window.location.href = "/reset.html";
+            if(res.data.message == "no_email"){
+                document.getElementById("forgotErrorShow").innerHTML = "This email does not exist";
+                $scope.forgotErrorShow = true;
+            }
+            else{
+                window.location.href = "/reset.html";
+
+            }
             
         });
     }
@@ -310,11 +320,37 @@ app.controller('brandList', ['$scope', '$http', '$timeout' , '$window' ,'$locati
         })
 
         data.resetPassword(payload).then(function successCallBack(res) {
-            window.location.href = "/login.html";
+
+            console.log(res.data.message);
+
+            if(res.data.message == "no_salt"){
+
+                document.getElementById("resetErrorShow").innerHTML = "This token does not exist";
+                $scope.resetErrorShow = true;
+
+            }
+            else if(res.data.message == "no_cap"){
+
+                document.getElementById("resetErrorShow").innerHTML = "Password must use at least one capital letter";
+                $scope.resetErrorShow = true;
+
+            }
+            else if(res.data.message == "no_match"){
+
+                document.getElementById("resetErrorShow").innerHTML = "Passwords do not match";
+                $scope.resetErrorShow = true;
+
+            }
+            else{
+                window.location.href = "/login.html";
+            }
             
         });
 
     }
+
+
+    
     $scope.remove = function(index){
       
 
@@ -403,8 +439,31 @@ app.controller('brandList', ['$scope', '$http', '$timeout' , '$window' ,'$locati
 
 
         data.userRegister(payload).then(function successCallBack(res) {
-            console.log("You did it, you crazy son of a bitch you did it...");
-            window.location.href = "/login.html";
+            console.log(res.data.message);
+            if(res.data.message == "no_reuse"){
+                document.getElementById("registerErrorShow").innerHTML = "Email already registered";
+                console.log("BINGBONG");
+                $scope.registerErrorShow = true;
+            }
+            
+            else if(res.data.message == "no_valid"){
+                document.getElementById("registerErrorShow").innerHTML = "Not a valid email address";
+                $scope.registerErrorShow = true;
+            }
+
+            else if(res.data.message == "no_cap"){
+                document.getElementById("registerErrorShow").innerHTML = "Password must contain at least 1 capital letter";
+                $scope.registerErrorShow = true;
+            }
+
+            else if(res.data.message == "no_match"){
+                document.getElementById("registerErrorShow").innerHTML = "Passwords do not match";
+                $scope.registerErrorShow = true;
+            }
+
+            else{
+                window.location.href = "/login.html";
+            }
         
     });
 
